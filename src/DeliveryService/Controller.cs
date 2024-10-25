@@ -7,22 +7,26 @@ namespace DeliveryService {
         private Model model = new Model();
 
         public StateApp MoveUser(char key) {
-            StateApp code;
-            code = model.CheckKey(key);
-            return code;
+            return model.CheckKey(key);
         }
 
         public StateApp NewOrderNumber(string? orderNumberString) {
-            StateApp code;
-            ulong orderNumber;
-            if(ulong.TryParse(orderNumberString, out orderNumber)) {
-                model.orderNumber = orderNumber;
-                code = StateApp.ADD_DATE;
-            } else {
-                code = StateApp.ERROR;
+            return model.NewOrderNumber(orderNumberString);
+        }
+
+        public StateApp NewOrderWeight(string? orderWeightString) {
+            return model.NewOrderWeight(orderWeightString);
+        }
+        public StateApp UpdateDatabase(){
+            return model.WritingToFile();;
+        }
+
+        class ParsDate {
+            public virtual StateApp UpdateDate(string? orderNumberString) {
+                StateApp state;
+                
+                return state;
             }
-            
-            return code;
         }
         
        

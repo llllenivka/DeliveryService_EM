@@ -47,6 +47,26 @@ namespace DeliveryService {
                 Console.Write("Enter the order number: ");
                 state = controller.NewOrderNumber(Console.ReadLine());
             } while(state == StateApp.ERROR);
+
+            do {
+                if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
+                Console.Write("Enter the order weight: ");
+                state = controller.NewOrderNumber(Console.ReadLine());
+            } while(state == StateApp.ERROR);
+
+            do {
+                if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
+                Console.Write("Enter the order weight: ");
+                state = controller.NewOrderNumber(Console.ReadLine());
+            } while(state == StateApp.ERROR);
+
+            // do {
+            //     if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
+            //     Console.Write("Enter the order weight: ");
+            //     state = controller.NewOrderNumber(Console.ReadLine());
+            // } while(state == StateApp.ERROR);
+            
+            state = controller.UpdateDatabase();
             
             return state;
         } 
