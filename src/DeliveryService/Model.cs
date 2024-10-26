@@ -6,21 +6,13 @@ using System.Text.Json;
 namespace DeliveryService {
     class OrderType {
         // переделать геттеры сетттеры ????
-        private BigInteger orderNumber;
-        private double orderWeight;
-        private string orederDistrict;
-        private DateTime orderDate;
-
-        public void setOrderNumber(BigInteger number) {
-            orderNumber = number;
-        }
-
-        public void setOrderWeight(double weight) {
-            orderWeight = weight;
-        }
-
+        public BigInteger orderNumber {get; set;}
+        public double weight {get; set;}
+        public string deliveryDistrict {get; set;}
+        public DateTime deliveryDate {get; set;}
 
     }
+
     class Model {
         private OrderType order = new OrderType();
         private string fileName = "DS_Database.json";
@@ -49,6 +41,7 @@ namespace DeliveryService {
             
             if(CorrectFile()){
                 string newOrder = JsonConvert.SerializeObject(order);
+                Console.WriteLine("TEST \n" + newOrder);
                 File.AppendAllText(fileName, newOrder + Environment.NewLine);
                 state = StateApp.MENU;
             } else state = StateApp.ERROR;
@@ -62,7 +55,7 @@ namespace DeliveryService {
             FileInfo fileInfo = new FileInfo(fileName);
             if (!fileInfo.Exists)
             {
-                File.Create(fileName);
+                using (File.Create(fileName)){}
                 code = true;
             } else code = true;
 
@@ -78,22 +71,49 @@ namespace DeliveryService {
             } else if (orderNumber < 1) {
                 state = StateApp.ERROR;
             } else {
-                order.setOrderNumber(orderNumber);
+                order.orderNumber = orderNumber;
                 state = StateApp.ADD_DATE;
             }
 
             return state;
         }
-        public StateApp NewOrderWeight(string? orderWeightString) {
+        public StateApp NewOrderWeight(string? weightString) {
             StateApp state;
-            double orderWeight;
+            double weight;
 
-            if(!double.TryParse(orderWeightString, out orderWeight)) {
+            if(!double.TryParse(weightString, out weight)) {
                 state = StateApp.ERROR;
-            } else if (orderWeight <= 0) {
+            } else if (weight <= 0.0f) {
                 state = StateApp.ERROR;
             } else {
-                order.setOrderWeight(orderWeight);
+                order.weight = weight;
+                state = StateApp.ADD_DATE;
+            }
+            
+            return state;
+        }
+
+        public StateApp NewDeliveryDistrict(string? orderDistrictString) {
+            StateApp state;
+           
+            if(orderDistrictString != null){
+                order.deliveryDistrict = orderDistrictString;
+                state = StateApp.ADD_DATE;
+            } else {
+                state = StateApp.ERROR;
+            }
+            
+            return state;
+        }
+
+        public StateApp NewDeliveryDate(string? deliveryDateString) {
+            StateApp state;
+            DateTime date;
+
+            if(!DateTime.TryParse(deliveryDateString, out date)) {
+                state = StateApp.ERROR;
+            } else {
+                order.deliveryDate = date;
                 state = StateApp.ADD_DATE;
             }
             

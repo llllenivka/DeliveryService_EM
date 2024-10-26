@@ -3,9 +3,10 @@ using System.Collections.Specialized;
 
 namespace DeliveryService {
     class View {
-        public View() { state = StateApp.MENU; }
-        private StateApp state = new StateApp();
+
+        private StateApp state = StateApp.MENU;
         private Controller controller = new Controller();
+
         public void AppRun() {
             do {
                 Console.Clear();
@@ -13,10 +14,9 @@ namespace DeliveryService {
                 switch(state) {
                     case StateApp.MENU:
                         Menu();
-                        state = InputUserKey();
                         break;
                     case StateApp.ADD_DATE:
-                        state = AddNewOrder();
+                        AddNewOrder();
                         break;
                     case StateApp.FILTER_DATE:
                         break;
@@ -29,46 +29,69 @@ namespace DeliveryService {
 
             Console.Clear();
         }
+
         private void Menu() {
             Console.WriteLine("Add a new order - press A");
             Console.WriteLine("Filter delivery - press F");
             Console.WriteLine("Exit - press E");
+
+            InputUserKey();
         }
 
-        private  StateApp InputUserKey() {
+        private  void InputUserKey() {
             var keyInfo = Console.ReadKey(intercept: true);
             state = controller.MoveUser(keyInfo.KeyChar);
-            return state;
         }
 
-        private StateApp AddNewOrder() {
+        private void AddNewOrder() {
+            AddOrderNumber();
+            AddOrderWeight();
+            AddDeliveryDistrict();
+            AddDeliveryDate();
+            
+            controller.UpdateDatabase();
+
+            if(state != StateApp.ERROR) {
+                Console.Clear();
+                Console.WriteLine("The order has been successfully added!\nPress any key to exit this mode");
+                Console.ReadKey(intercept: true);
+            } else {
+                Console.WriteLine("There was an error when creating a new order. Try again :(\nPress any key to exit this mode");
+                state = StateApp.MENU;
+                Console.ReadKey(intercept: true);
+            } 
+        } 
+
+        private void AddOrderNumber() {
             do {
                 if(state == StateApp.ERROR) Console.WriteLine("Wrong order number, try again...");
                 Console.Write("Enter the order number: ");
                 state = controller.NewOrderNumber(Console.ReadLine());
             } while(state == StateApp.ERROR);
+        }
 
+        private void AddOrderWeight() {
             do {
                 if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
                 Console.Write("Enter the order weight: ");
-                state = controller.NewOrderNumber(Console.ReadLine());
+                state = controller.NewOrderWeight(Console.ReadLine());
             } while(state == StateApp.ERROR);
+        }
 
+        private void AddDeliveryDistrict() {
             do {
-                if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
-                Console.Write("Enter the order weight: ");
-                state = controller.NewOrderNumber(Console.ReadLine());
+                if(state == StateApp.ERROR) Console.WriteLine("Wrong delivery district, try again...");
+                Console.Write("Enter the delivery district: ");
+                state = controller.NewDeliveryDistrict(Console.ReadLine());
             } while(state == StateApp.ERROR);
+        }
 
-            // do {
-            //     if(state == StateApp.ERROR) Console.WriteLine("Wrong order weight, try again...");
-            //     Console.Write("Enter the order weight: ");
-            //     state = controller.NewOrderNumber(Console.ReadLine());
-            // } while(state == StateApp.ERROR);
-            
-            state = controller.UpdateDatabase();
-            
-            return state;
-        } 
+        private void AddDeliveryDate() {
+            do {
+                if(state == StateApp.ERROR) Console.WriteLine("Wrong delivery date, try again...");
+                Console.Write("Enter the delivery date: ");
+                state = controller.NewDeliveryDate(Console.ReadLine());
+            } while(state == StateApp.ERROR);
+        }
     }
 }
