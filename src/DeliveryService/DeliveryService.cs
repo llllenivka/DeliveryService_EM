@@ -12,7 +12,6 @@ namespace DeliveryService {
                 List<OrderType> filterOrders = FilterOrders();
                 OutputToFile(filterOrders);
 
-
             } catch(Exception error) {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"ERROR: {error.Message}");
@@ -140,7 +139,8 @@ namespace DeliveryService {
             using (FileStream fs = File.Create(filePath)) {}
 
             foreach (var order in orders) {
-                string orderString = $"{order.orderNumber} {order.weight} {order.deliveryDistrict} {order.deliveryDate}";
+                string date = order.deliveryDate.ToString("yyyy-MM-dd HH:mm:ss");
+                string orderString = $"{order.orderNumber}\t{order.weight}\t{order.deliveryDistrict}\t{date}";
                 File.AppendAllText(filePath, orderString + Environment.NewLine);
             }
         }
