@@ -5,15 +5,25 @@ using System.Text.Json;
 
 namespace DeliveryService {
     class OrderType {
-        // переделать геттеры сетттеры ????
         public BigInteger orderNumber {get; set;}
         public double weight {get; set;}
-        public string deliveryDistrict {get; set;}
+        public string deliveryDistrict {get; set;} = string.Empty;
         public DateTime deliveryDate {get; set;}
-
     }
 
     class Model {
+        public List<string> Districts {get; set;} = new List <string> {
+                "Arbat", 
+                "Basmanny", 
+                "Zamoskvorechye", 
+                "Krasnoselsky", 
+                "Meshchansky", 
+                "Presnensky", 
+                "Tagansky", 
+                "Tverskoy", 
+                "Khamovniki", 
+                "Yakimanka"
+        };
         private OrderType order = new OrderType();
         private string fileName = "DS_Database.json";
 
@@ -95,12 +105,15 @@ namespace DeliveryService {
 
         public StateApp NewDeliveryDistrict(string? orderDistrictString) {
             StateApp state;
-           
-            if(orderDistrictString != null){
-                order.deliveryDistrict = orderDistrictString;
-                state = StateApp.ADD_DATE;
-            } else {
+            int id = 0;
+
+            if(!int.TryParse(orderDistrictString, out id)) {
                 state = StateApp.ERROR;
+            } else if(id > Districts.Count() || id < 1){
+                state = StateApp.ERROR;
+            } else {
+                order.deliveryDistrict = Districts[id - 1];
+                state = StateApp.ADD_DATE;
             }
             
             return state;
@@ -109,7 +122,6 @@ namespace DeliveryService {
         public StateApp NewDeliveryDate(string? deliveryDateString) {
             StateApp state;
             DateTime date;
-
             if(!DateTime.TryParse(deliveryDateString, out date)) {
                 state = StateApp.ERROR;
             } else {
@@ -119,10 +131,5 @@ namespace DeliveryService {
             
             return state;
         }
-
-
-
-
-
     }
 }

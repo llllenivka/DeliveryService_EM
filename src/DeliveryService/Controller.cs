@@ -24,5 +24,9 @@ namespace DeliveryService {
         public StateApp UpdateDatabase(){
             return model.WritingToFile();;
         }
+
+        public List<string> getListDistrict() {
+            return model.Districts;
+        }
     }
 }

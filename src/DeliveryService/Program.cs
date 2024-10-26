@@ -18,16 +18,3 @@ namespace DeliveryService
 
     }
 }
-
-
-
-// Arbat
-// Basmanny district
-// Zamoskvorechye
-// Krasnoselsky district
-// Meshchansky district
-// Presnensky district
-// Tagansky district
-// Tverskoy district
-// Khamovniki
-// Yakimanka
