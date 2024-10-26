@@ -18,7 +18,8 @@ namespace DeliveryService {
                     case StateApp.ADD_DATE:
                         AddNewOrder();
                         break;
-                    case StateApp.FILTER_DATE:
+                    case StateApp.FILTER_ORDERS:
+                        // FilterOrders();
                         break;
                     case StateApp.ERROR:
                         state = StateApp.MENU;
@@ -33,6 +34,7 @@ namespace DeliveryService {
         private void Menu() {
             Console.WriteLine("Add a new order - press A");
             Console.WriteLine("Filter delivery - press F");
+            // Console.WriteLine("Show ")
             Console.WriteLine("Exit - press E");
 
             InputUserKey();
@@ -43,8 +45,11 @@ namespace DeliveryService {
             state = controller.MoveUser(keyInfo.KeyChar);
         }
 
+        private void ReadFile() {
+
+        }
+
         private void AddNewOrder() {
-            // + нажать на кнопку esc для выхода
             AddOrderNumber();
             AddOrderWeight();
             AddDeliveryDistrict();

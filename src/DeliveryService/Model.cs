@@ -5,13 +5,14 @@ using System.Text.Json;
 using System.Security.Permissions;
 
 namespace DeliveryService {
-    class OrderType {
-        public BigInteger orderNumber {get; set;}
-        public double weight {get; set;}
-        public string deliveryDistrict {get; set;} = string.Empty;
-        public DateTime deliveryDate {get; set;}
-    }
-
+    // class OrderType {
+    //     public BigInteger orderNumber {get; set;}
+    //     public double weight {get; set;}
+    //     public string deliveryDistrict {get; set;} = string.Empty;
+    //     public DateTime deliveryDate {get; set;}
+    // }
+     
+//Arbat Basmanny Zamoskvorechye Krasnoselsky Meshchansky Presnensky Tagansky Tverskoy Khamovniki Yakimanka
     class Model {
         public List<string> Districts {get; set;} = new List <string> {
                 "Arbat", 
