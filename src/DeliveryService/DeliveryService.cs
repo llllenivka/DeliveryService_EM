@@ -10,6 +10,8 @@ namespace DeliveryService {
                 string[] ordersString = OpenFIle(fileName);
                 ParseOrders(ordersString);
                 List<OrderType> filterOrders = FilterOrders();
+                OutputToFile(filterOrders);
+
 
             } catch(Exception error) {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -42,14 +44,16 @@ namespace DeliveryService {
             if(ordersString.Length < 1){
                 throw new Exception("File is empty.");
             }
+            
             for(int i = 0; i < ordersString.Length; i++){
-
                 OrderType newOrder = new OrderType();
+
                 string[] line = ordersString[i].Split('|');
                 newOrder.orderNumber = GetOrderNumber(line[0]);
                 newOrder.weight = GetOrderWeight(line[1]);
                 newOrder.deliveryDistrict = line[2];
                 newOrder.deliveryDate = GetDeliveryDate(line[3]);
+
                 orders.Add(newOrder);
             }
         }
@@ -87,7 +91,7 @@ namespace DeliveryService {
 
         private string InputDistrictFilter() {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Enter the district to filter delivery: ");
+            Console.WriteLine("Enter delivery district: ");
             Console.ResetColor();
 
             string ? district = Console.ReadLine();
@@ -101,7 +105,7 @@ namespace DeliveryService {
 
         private DateTime InputDateFilter() {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Enter the date and time to filter delivery: ");
+            Console.WriteLine("Enter the date and time (yyyy-MM-dd HH:mm:ss) of the first delivery: ");
             Console.ResetColor();
 
             string ? dateString = Console.ReadLine();
@@ -115,19 +119,30 @@ namespace DeliveryService {
 
         private List<OrderType> GetFilterOrders(string district, DateTime date){
             List<OrderType> result = new List<OrderType>();
-            for(int i = 0; i < orders.Count; i++) {
-                if(orders[i].deliveryDistrict == district){
-                    result.Add(orders[i]);
+            foreach (var order in orders) {
+                if(order.deliveryDistrict == district && order.deliveryDate >= date && order.deliveryDate < date.AddMinutes(30)){
+                    result.Add(order);
                 }
             }
-
-            Console.WriteLine(result.Count);
 
             if(result.Count < 1) {
                 throw new Exception("No such orders were found.");
             }
 
             return result;
+        }
+
+        private void OutputToFile(List<OrderType> orders) {
+            string filePath = "_deliverOrder.txt";
+            if(File.Exists(filePath)){
+                File.Delete(filePath);
+            }
+            using (FileStream fs = File.Create(filePath)) {}
+
+            foreach (var order in orders) {
+                string orderString = $"{order.orderNumber} {order.weight} {order.deliveryDistrict} {order.deliveryDate}";
+                File.AppendAllText(filePath, orderString + Environment.NewLine);
+            }
         }
 
     }
