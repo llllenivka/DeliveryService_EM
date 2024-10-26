@@ -2,6 +2,7 @@ using System;
 using Newtonsoft.Json;
 using System.Numerics;
 using System.Text.Json;
+using System.Security.Permissions;
 
 namespace DeliveryService {
     class OrderType {
@@ -78,7 +79,7 @@ namespace DeliveryService {
 
             if(!BigInteger.TryParse(orderNumberString, out orderNumber)) {
                 state = StateApp.ERROR;
-            } else if (orderNumber < 1) {
+            } else if (orderNumber < 1 || orderNumberExist(orderNumber)) {
                 state = StateApp.ERROR;
             } else {
                 order.orderNumber = orderNumber;
@@ -130,6 +131,15 @@ namespace DeliveryService {
             }
             
             return state;
+        }
+
+        public bool orderNumberExist(BigInteger number) {
+            bool result = false;
+            string checkNum = "{\"orderNumber\":" + number + ",";
+            string orders =  File.ReadAllText(fileName);
+            if(orders.Contains(checkNum)) result = true;
+
+            return result;
         }
     }
 }

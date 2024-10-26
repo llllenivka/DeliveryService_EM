@@ -44,7 +44,7 @@ namespace DeliveryService {
         }
 
         private void AddNewOrder() {
-            // нажати на кнопку esc для выхода
+            // + нажать на кнопку esc для выхода
             AddOrderNumber();
             AddOrderWeight();
             AddDeliveryDistrict();
@@ -54,7 +54,6 @@ namespace DeliveryService {
         }
 
         private void AddOrderNumber() {
-            // + проверка что это уникальный номер 
             Console.Clear();
             do {
                 if(state == StateApp.ERROR) Console.WriteLine("Wrong order number, try again...");
@@ -78,7 +77,7 @@ namespace DeliveryService {
             do {
                 if(state == StateApp.ERROR) Console.WriteLine("Wrong delivery district, try again...");
                 for(int i = 0; i < districts.Count(); i++) {
-                    Console.WriteLine($"\t{i + 1} - {districts[i]}");
+                    Console.WriteLine($"{i + 1} - {districts[i]}");
                 }
                 Console.WriteLine("Select id district for order delivery : ");
                 state = controller.NewDeliveryDistrict(Console.ReadLine());
