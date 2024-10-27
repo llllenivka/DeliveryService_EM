@@ -1,21 +1,10 @@
 using System;
 
 namespace DeliveryService {
-    class InputOrders{
-        public static string[] GetOrders() {
-            string fileName = InputFileName();
+    class NewOrders{
+        public static string[] GetOrders(string fileName) {
             string[] orders = ReadFIle(fileName);
             return orders;
-        }
-        private static string InputFileName() {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Enter the file name...");
-            Console.ResetColor();
-            string? fileName = Console.ReadLine();
-            if(string.IsNullOrWhiteSpace(fileName)){
-                throw new Exception("Input error. An error occurred while reading the file name.");
-            }
-            return fileName;
         }
 
         private static string[] ReadFIle(string fileName) {

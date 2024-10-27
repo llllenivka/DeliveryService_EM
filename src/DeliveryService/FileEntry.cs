@@ -3,7 +3,7 @@ using System;
 namespace DeliveryService {
 
     class FileEntry {
-        public static void Output(List<OrderType> orders) {
+        public static string Output(List<OrderType> orders) {
             string filePath = "_deliverOrder.txt";
             if(File.Exists(filePath)){
                 File.Delete(filePath);
@@ -15,6 +15,8 @@ namespace DeliveryService {
                 string orderString = $"{order.orderNumber}\t|\t{order.weight}\t|\t{order.deliveryDistrict}\t|\t{date}";
                 File.AppendAllText(filePath, orderString + Environment.NewLine);
             }
+
+            return filePath;
         }
     }
 
