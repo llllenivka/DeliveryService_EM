@@ -1,4 +1,3 @@
-// namespace Test;
 namespace DeliveryService{
 
 
@@ -57,6 +56,39 @@ public class UnitTest
         string[] ordersstring = new string[] {"1|89.89|Arbat|Incorrect Date Order"};
         var exception = Assert.Throws<Exception>(() => ParsOrders.Parser(ordersstring));
         Assert.Equal("Incorrect order data." , exception.Message);
+    }
+
+    [Fact]
+    public void Test8()
+    {
+        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        List<OrderType> orders = ParsOrders.Parser(ordersstring);
+        string dateString = "2024-10-26 11:10:00";
+        DateTime date = DateTime.Parse(dateString);
+        List<OrderType> filterOrders = FilterOrders.Filter(orders, "Arbat", date);
+        Assert.Equal(1, filterOrders.Count);
+    }
+
+    [Fact]
+    public void Test9()
+    {
+        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        List<OrderType> orders = ParsOrders.Parser(ordersstring);
+        string dateString = "2024-11-26 11:10:00";
+        DateTime date = DateTime.Parse(dateString);
+        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, "Arbat", date));
+        Assert.Equal("No such orders were found." , exception.Message);
+    }
+
+    [Fact]
+    public void Test10()
+    {
+        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        List<OrderType> orders = ParsOrders.Parser(ordersstring);
+        string dateString = "2024-10-26 11:10:00";
+        DateTime date = DateTime.Parse(dateString);
+        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, "incorrect", date));
+        Assert.Equal("No such orders were found." , exception.Message);
     }
 
 }
