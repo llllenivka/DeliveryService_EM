@@ -20,5 +20,7 @@ WORKDIR /app
 # Копируем собранное приложение из предыдущего этапа
 COPY --from=build /app/build .
 
+COPY DeliveryService/Example.txt .
+
 # Указываем точку входа приложения
-ENTRYPOINT ["dotnet", "DeliveryService.dll"]
+ENTRYPOINT ["sh", "-c", "dotnet DeliveryService.dll; cat _deliveryOrder.txt _deliveryLog.txt"]
