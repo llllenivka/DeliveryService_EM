@@ -1,0 +1,17 @@
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/DeliveryService
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/DeliveryService.deps.json
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/DeliveryService.runtimeconfig.json
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/DeliveryService.dll
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/DeliveryService.pdb
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.csproj.AssemblyReference.cache
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.AssemblyInfoInputs.cache
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.AssemblyInfo.cs
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.csproj.CoreCompileInputs.cache
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.dll
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/refint/DeliveryService.dll
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.pdb
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.genruntimeconfig.cache
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/ref/DeliveryService.dll
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/Debug/net8.0/DeliveryService.csproj.CopyComplete

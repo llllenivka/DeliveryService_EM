@@ -2,7 +2,7 @@ using System;
 
 namespace DeliveryService {
 
-    class FilterOrders{
+    public class FilterOrders{
         public static List<OrderType> Filter(List<OrderType> orders, string district, DateTime date){
             var result = new List<OrderType>();
             foreach (var order in orders) {

@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace DeliveryService {
     
-    class DeliveryLogger {
+    public class DeliveryLogger {
         
         private static void CheckLogFile() {
             string fileName = "_deliveryLog.txt";

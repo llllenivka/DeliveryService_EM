@@ -4,7 +4,7 @@ using Microsoft.VisualBasic;
 
 namespace DeliveryService {
 
-    class ParsOrders {
+    public class ParsOrders {
         public static List<OrderType> Parser(string[] ordersString) {
             if(ordersString.Length < 1){
                 throw new Exception("File is empty.");
@@ -30,7 +30,7 @@ namespace DeliveryService {
         public static BigInteger GetOrderNumber(string numberString) {
             var number = new BigInteger();
             if(!BigInteger.TryParse(numberString, out number) || number < 0){
-                throw new Exception("Incorrect order data.");
+                throw new Exception("Incorrect order number.");
             } 
 
             return number;
@@ -39,7 +39,7 @@ namespace DeliveryService {
         public static double GetOrderWeight(string weightString) {
             var weight = new double();
             if(!double.TryParse(weightString, out weight)){
-                throw new Exception("Incorrect order data.");
+                throw new Exception("Incorrect order weight.");
             }
             return weight;
         }

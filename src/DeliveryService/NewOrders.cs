@@ -1,7 +1,7 @@
 using System;
 
 namespace DeliveryService {
-    class NewOrders{
+    public class NewOrders{
         public static string[] GetOrders(string fileName) {
             string[] orders = ReadFIle(fileName);
             return orders;

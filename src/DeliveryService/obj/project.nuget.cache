@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZU8xww4Sr256ZrPBnq5b5qwAIM6hYtSm3+tAXF52GBRd0FKy9gyHUMwkts9lLqnO1M07A733dYkBdifOWBcw9A==",
+  "success": true,
+  "projectFilePath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj",
+  "expectedPackageFiles": [
+    "/Users/lenwooda/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
