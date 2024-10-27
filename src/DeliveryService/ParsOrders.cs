@@ -4,7 +4,7 @@ using Microsoft.VisualBasic;
 
 namespace DeliveryService {
 
-    class ParsOrders() {
+    class ParsOrders {
         public static List<OrderType> Parser(string[] ordersString) {
             if(ordersString.Length < 1){
                 throw new Exception("File is empty.");

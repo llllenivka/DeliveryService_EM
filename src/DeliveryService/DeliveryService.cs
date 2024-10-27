@@ -9,7 +9,6 @@ namespace DeliveryService {
                 List <OrderType> orders = ParsOrders.Parser(ordersString);
                 List<OrderType> filterOrders = FilterOrders.Filter(orders);
                 FileEntry.Output(filterOrders);
-
             } catch(Exception error) {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"ERROR: {error.Message}");

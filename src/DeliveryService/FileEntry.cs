@@ -12,7 +12,7 @@ namespace DeliveryService {
 
             foreach (var order in orders) {
                 string date = order.deliveryDate.ToString("yyyy-MM-dd HH:mm:ss");
-                string orderString = $"{order.orderNumber}\t{order.weight}\t{order.deliveryDistrict}\t{date}";
+                string orderString = $"{order.orderNumber}\t|\t{order.weight}\t|\t{order.deliveryDistrict}\t|\t{date}";
                 File.AppendAllText(filePath, orderString + Environment.NewLine);
             }
         }
