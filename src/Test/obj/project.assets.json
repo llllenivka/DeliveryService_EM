@@ -982,32 +982,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/lenwooda/.nuget/packages/": {}
+    "/Users/adelina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/Test/Test.csproj",
+      "projectUniqueName": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/Test/Test.csproj",
       "projectName": "Test",
-      "projectPath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/Test/Test.csproj",
-      "packagesPath": "/Users/lenwooda/.nuget/packages/",
-      "outputPath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/Test/obj/",
+      "projectPath": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/Test/Test.csproj",
+      "packagesPath": "/Users/adelina/.nuget/packages/",
+      "outputPath": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lenwooda/.nuget/NuGet/NuGet.Config"
+        "/Users/adelina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj": {
-              "projectPath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj"
+            "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj": {
+              "projectPath": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj"
             }
           }
         }
@@ -1016,6 +1017,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1059,7 +1065,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.3.23178.7/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

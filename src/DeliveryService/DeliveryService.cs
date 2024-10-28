@@ -13,10 +13,10 @@ namespace DeliveryService {
                 inputSucces = false;
                 Console.WriteLine("Error: " + error.Message);
             }
-            
+
             if(inputSucces) {
                 try {
-                DeliveryLogger.NewLog(dataForFilter.DeliveryLog, "The program is running.");
+                    DeliveryLogger.NewLog(dataForFilter.DeliveryLog, "The program is running.");
                     string[] ordersString = NewOrders.GetOrders();
                     List <OrderType> orders = ParsOrders.Parser(ordersString);
                     DeliveryLogger.NewLog(dataForFilter.DeliveryLog, $"{orders.Count} orders have been successfully read.");

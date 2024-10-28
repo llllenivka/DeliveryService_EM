@@ -6,21 +6,14 @@ public class UnitTest
     [Fact]
     public void Test1()
     {
-        string[] orders = NewOrders.GetOrders("../../../Example.txt");
+        string[] orders = NewOrders.GetOrders();
         Assert.Equal(200, 200);
-    }
-
-    [Fact]
-    public void Test2()
-    {
-        var exception = Assert.Throws<Exception>(() => NewOrders.GetOrders("errorFileName"));
-        Assert.Equal("File does not exist.", exception.Message);
     }
 
     [Fact]
     public void Test3()
     {
-        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        string[] ordersstring = NewOrders.GetOrders();
         List<OrderType> orders = ParsOrders.Parser(ordersstring);
         Assert.Equal(200 , orders.Count);
     }
@@ -61,33 +54,45 @@ public class UnitTest
     [Fact]
     public void Test8()
     {
-        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        string[] ordersstring = NewOrders.GetOrders();
         List<OrderType> orders = ParsOrders.Parser(ordersstring);
-        string dateString = "2024-10-26 11:10:00";
-        DateTime date = DateTime.Parse(dateString);
-        List<OrderType> filterOrders = FilterOrders.Filter(orders, "Arbat", date);
+        var data = new DataForFilter {
+            CityDistrict = "Arbat",
+            FirstDeliveryDateTime = DateTime.Parse("2024-10-26 11:10:00"),
+            DeliveryLog = "exampleLog.txt",
+            DeliveryOrder = "exampleOrder.txt"
+        };
+        List<OrderType> filterOrders = FilterOrders.Filter(orders, data);
         Assert.Equal(1, filterOrders.Count);
     }
 
     [Fact]
     public void Test9()
     {
-        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        string[] ordersstring = NewOrders.GetOrders();
         List<OrderType> orders = ParsOrders.Parser(ordersstring);
-        string dateString = "2024-11-26 11:10:00";
-        DateTime date = DateTime.Parse(dateString);
-        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, "Arbat", date));
+        var data = new DataForFilter {
+            CityDistrict = "Arbat",
+            FirstDeliveryDateTime = DateTime.Parse("2024-11-26 11:10:00"),
+            DeliveryLog = "exampleLog.txt",
+            DeliveryOrder = "exampleOrder.txt"
+        };
+        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, data));
         Assert.Equal("No such orders were found." , exception.Message);
     }
 
     [Fact]
     public void Test10()
     {
-        string[] ordersstring = NewOrders.GetOrders("../../../Example.txt");
+        string[] ordersstring = NewOrders.GetOrders();
         List<OrderType> orders = ParsOrders.Parser(ordersstring);
-        string dateString = "2024-10-26 11:10:00";
-        DateTime date = DateTime.Parse(dateString);
-        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, "incorrect", date));
+        var data = new DataForFilter {
+            CityDistrict = "Incorrect",
+            FirstDeliveryDateTime = DateTime.Parse("2024-11-26 11:10:00"),
+            DeliveryLog = "exampleLog.txt",
+            DeliveryOrder = "exampleOrder.txt"
+        };
+        var exception = Assert.Throws<Exception>(() => FilterOrders.Filter(orders, data));
         Assert.Equal("No such orders were found." , exception.Message);
     }
 
