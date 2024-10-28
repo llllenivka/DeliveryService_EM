@@ -3,7 +3,7 @@ using System;
 namespace DeliveryService {
     public class NewOrders{
         public static string[] GetOrders() {
-            string rootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            string rootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName = string.Empty;
             string filePath = Path.Combine(rootDirectory, "Example.txt");
             string[] orders = ReadFIle(filePath);
             return orders;

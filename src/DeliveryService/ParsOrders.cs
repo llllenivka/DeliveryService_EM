@@ -53,7 +53,7 @@ namespace DeliveryService {
         }
 
         public static DataForFilter GetInputUser(string [] inputUser) {
-            if (inputUser.Length < 4 || inputUser.All(item => string.IsNullOrEmpty(item))) {
+            if (inputUser.Length < 5 || inputUser.All(item => string.IsNullOrEmpty(item))) {
                 throw new Exception("The entered data is incorrect or missing");
             }
 
