@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DeliveryService\DeliveryLogger.cs" />
+    <Compile Include="..\DeliveryService\DeliveryService.cs" />
+    <Compile Include="..\DeliveryService\FileEntry.cs" />
+    <Compile Include="..\DeliveryService\FilterOrders.cs" />
+    <Compile Include="..\DeliveryService\NewOrders.cs" />
+    <Compile Include="..\DeliveryService\OrderType.cs" />
+    <Compile Include="..\DeliveryService\ParsOrders.cs" />
+  </ItemGroup>
+
+</Project>
