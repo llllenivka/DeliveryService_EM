@@ -16,10 +16,10 @@ namespace DeliveryService {
                 OrderType newOrder = new OrderType();
 
                 string[] line = ordersString[i].Split('|');
-                newOrder.orderNumber = GetOrderNumber(line[0]);
-                newOrder.weight = GetOrderWeight(line[1]);
-                newOrder.deliveryDistrict = line[2];
-                newOrder.deliveryDate = GetDeliveryDate(line[3]);
+                newOrder.OrderNumber = GetOrderNumber(line[0]);
+                newOrder.Weight = GetOrderWeight(line[1]);
+                newOrder.DeliveryDistrict = line[2];
+                newOrder.DeliveryDate = GetDeliveryDate(line[3]);
 
                 orders.Add(newOrder);
             }
@@ -50,6 +50,21 @@ namespace DeliveryService {
                 throw new Exception("Incorrect order data.");
             }
             return date;
+        }
+
+        public static DataForFilter GetInputUser(string [] inputUser) {
+            if (inputUser.Length < 4 || inputUser.All(item => string.IsNullOrEmpty(item))) {
+                throw new Exception("The entered data is incorrect or missing");
+            }
+
+            var data = new DataForFilter {
+                CityDistrict = inputUser[0],
+                FirstDeliveryDateTime = GetDeliveryDate($"{inputUser[1]} {inputUser[2]}"),
+                DeliveryLog = inputUser[3],
+                DeliveryOrder = inputUser[4]
+            };
+
+            return data;
         }
     }
 

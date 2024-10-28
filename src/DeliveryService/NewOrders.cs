@@ -2,8 +2,8 @@ using System;
 
 namespace DeliveryService {
     public class NewOrders{
-        public static string[] GetOrders(string fileName) {
-            string[] orders = ReadFIle(fileName);
+        public static string[] GetOrders() {
+            string[] orders = ReadFIle("Example.txt");
             return orders;
         }
 

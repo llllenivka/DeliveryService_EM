@@ -3,9 +3,16 @@ using System.Numerics;
 
 namespace DeliveryService {
     public class OrderType {
-        public BigInteger orderNumber {get; set;}
-        public double weight {get; set;}
-        public string deliveryDistrict {get; set;} = string.Empty;
-        public DateTime deliveryDate {get; set;}
+        public BigInteger OrderNumber { get; set; }
+        public double Weight { get; set; }
+        public string DeliveryDistrict { get; set; } = string.Empty;
+        public DateTime DeliveryDate { get; set; }
+    }
+
+    public class DataForFilter {
+        public string CityDistrict { get; set; } = string.Empty;
+        public DateTime FirstDeliveryDateTime { get; set; }
+        public string DeliveryLog { get; set; } = string.Empty;
+        public string DeliveryOrder { get; set; } = string.Empty;
     }
 }

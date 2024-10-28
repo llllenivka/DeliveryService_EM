@@ -55,24 +55,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/lenwooda/.nuget/packages/": {}
+    "/Users/adelina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj",
+      "projectUniqueName": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj",
       "projectName": "DeliveryService",
-      "projectPath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj",
-      "packagesPath": "/Users/lenwooda/.nuget/packages/",
-      "outputPath": "/Users/lenwooda/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/",
+      "projectPath": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/DeliveryService.csproj",
+      "packagesPath": "/Users/adelina/.nuget/packages/",
+      "outputPath": "/Users/adelina/Desktop/my_cringe/DeliveryService_EM/src/DeliveryService/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lenwooda/.nuget/NuGet/NuGet.Config"
+        "/Users/adelina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -85,6 +86,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -112,7 +118,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.3.23178.7/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
